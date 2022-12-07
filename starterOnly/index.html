@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
@@ -10,12 +10,17 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans"
       rel="stylesheet"
     />
+    <script src="script/modal.js" defer></script>
+    <script src="script/form.js" defer></script>
   </head>
+
   <body>
+
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
+
     <div class="main-navbar">
       
       <a href="#" class="active"><span>Accueil</span></a>
@@ -29,6 +34,7 @@
     </div>
     </div>
   </div>
+
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -54,69 +60,82 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="modal-close"></span>
           <div class="modal-body">
+
             <form
+            class="inscription-form"
               name="reserve"
-              action="index.html"
-              method="get"
-              onsubmit="return validate();"
             >
               <div
-                class="formData">
-                <label>Prénom</label><br>
+                class="form-data"
+                data-error="Veuillez entrer deux caractères ou plus"
+                data-error-visible="false"
+                >
+                <label for="first">Prénom</label>
                 <input
-                  class="text-control"
+                  class="text-control form-inputs"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
-                /><br>
+                  required
+                />
               </div>
               <div
-                class="formData">
-                <label>Nom</label><br>
+                class="form-data"
+                data-error="Veuillez entrer deux caractères ou plus"
+                data-error-visible="false">
+                <label for="last">Nom</label>
                 <input
-                  class="text-control"
+                  class="text-control form-inputs"
                   type="text"
                   id="last"
                   name="last"
-                /><br>
+                  required
+                />
               </div>
               <div
-                class="formData">
-                <label>E-mail</label><br>
+                class="form-data"
+                data-error="veuillez entrer une adresse email"
+                data-error-visible="false">
+                <label for="email">E-mail</label>
                 <input
-                  class="text-control"
+                  class="text-control form-inputs"
                   type="email"
                   id="email"
                   name="email"
-                /><br>
+                />
               </div>
               <div
-                class="formData">
-                <label>Date de naissance</label><br>
+                class="form-data"
+                data-error="Veuillez entrer une date de naissance"
+                data-error-visible="false">
+                <label for="birthdate">Date de naissance</label>
                 <input
-                  class="text-control"
+                  class="text-control form-inputs"
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                />
               </div>
               <div
-                class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                class="form-data"
+                data-error="veuillez entrer un nombre."
+                data-error-visible="false">
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
+                <input type="number" class="text-control form-inputs" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="form-data"
+                data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="radio"
                   id="location1"
                   name="location"
                   value="New York"
+                  checked
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -180,7 +199,9 @@
               </div>
 
               <div
-                class="formData">
+                class="form-data"
+                data-error="entre 2 carac"
+                data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -215,6 +236,5 @@
         Copyright 2014 - 2022, GameOn Inc.
       </p>
     </footer>
-    <script src="modal.js"></script>
   </body>
 </html>
