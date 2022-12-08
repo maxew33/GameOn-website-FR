@@ -1,4 +1,13 @@
-const inscriptionForm = document.querySelector('.inscription-form'),
+// DOM Elements
+const
+    navigationContainer = document.querySelector('.main-navbar'),
+    navigationToggleBtn = document.querySelector('.toggle-btn'),
+    //modal elt
+    modalbg = document.querySelector('.modal-container'),
+    closeModal = document.querySelector('.modal-close'),
+    modalBtn = [...document.querySelectorAll('.modal-btn')],
+    //form elt
+    inscriptionForm = document.querySelector('.inscription-form'),
     formData = [...document.querySelectorAll('.form-data')],
     textControls = [...document.querySelectorAll('.text-control')],
     termsOfUse = document.getElementById('terms-of-use'),
@@ -14,6 +23,26 @@ const inscriptionForm = document.querySelector('.inscription-form'),
     formInputs = [...document.querySelectorAll('.form-inputs')],
     finalValidation = []
 
+let modalOpened = false
+
+// toggle menu
+navigationToggleBtn.addEventListener('click', () => navigationContainer.classList.toggle('responsive'))
+
+console.log(modalBtn)
+
+// displaying modal event
+modalBtn.forEach(btn => btn.addEventListener('click', displayModal));
+closeModal.addEventListener('click', displayModal)
+
+
+// launch modal form
+function displayModal() {
+    console.log('modal click', modalOpened)
+    modalbg.style.display = modalOpened ? "none" : "block"
+    submissionModal.style.display = 'none'
+    modalOpened = !modalOpened
+    console.log('modal click', modalOpened)
+}
 
 inscriptionForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -43,6 +72,8 @@ const formValidation = (isCorrect, idx) => {
 
 const formValidate = () => {
     console.log('ok') // afficher le message de confirmation
+    //inscriptionForm.submit()
     submissionModal.style.display='block'
-    closeSubmissionModal.addEventListener('click', () => inscriptionForm.submit())
 }
+
+
