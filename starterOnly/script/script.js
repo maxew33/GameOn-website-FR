@@ -12,16 +12,14 @@ const
     textControls = [...document.querySelectorAll('.text-control')],
     locationsInput = [...document.querySelectorAll('.locations-input')],
     termsOfUse = document.getElementById('terms-of-use'),
-    submissionModal = document.querySelector('.submission-modal'),
-    closeSubmissionModal = document.querySelector('.close-submission-modal'),
-    formRegex = [
-        /.{2,}/, //first name regex
-        /.{2,}/, //last name regex
-        /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.][a-z]{2,5}$/, //email regex
-        /./, // birthday regex
-        /[0-9]+/ //qty regex
-    ],
-    formInputs = [...document.querySelectorAll('.form-inputs')],
+    confirmationModal = document.querySelector('.submission-modal'),
+    //form validation
+    formConditions = {
+        text: /.{2,}/,
+        email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.][a-z]{2,5}$/,
+        date: /./,
+        number: /[0-9]+/
+    },    
     finalValidation = []
 
 let modalOpened = false
@@ -36,7 +34,7 @@ closeModal.addEventListener('click', displayModal)
 // launch modal form
 function displayModal() {
     modalbg.style.display = modalOpened ? "none" : "block"
-    submissionModal.style.display = 'none'
+    confirmationModal.style.display = 'none'
     modalOpened = !modalOpened
 }
 
@@ -46,14 +44,22 @@ inscriptionForm.addEventListener('submit', e => {
 
     //reset the arrays
     finalValidation.length = 0
-    locationChecked.length = 0
+    let locationChecked = false
+    // locationChecked.length = 0
 
     //check the "text-control" inputs => formData 0 to 4
-    textControls.forEach((controller, idx) => {
-        formValidation(controller.value.match(formRegex[idx]) ? true : false, idx)
+    textControls.forEach((controller, idx) => {        
+        formValidation(controller.value.match(formConditions[controller.type]) ? true : false, idx)
     })
 
     //check the place => formData 5
+    console.log(locationsInput)
+    locationsInput.forEach((location, idx) => {
+        location.checked && (locationChecked = true)
+        console.log(locationChecked)
+        idx === (locationsInput.length - 1) && formValidation(locationChecked, 5)
+        
+    })
 
     //check the terms of use => formData 6
     formValidation(termsOfUse.checked, 6)
@@ -73,7 +79,7 @@ function formValidate() {
     //reset the form
     inscriptionForm.reset()
 
-    submissionModal.style.display = 'block'
+    confirmationModal.style.display = 'block'
 }
 
 
