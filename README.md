@@ -11,6 +11,20 @@
 ### issue 1 fixed
 - open / close modal by js toggle in script/modal.js file
 
+### issue 2 fixed
+- labels linked
+- form submitted when valid
+- data keeped whan not valid / reset when valid
+
+### issue 3 fixed
+- error messages displayed using form-data::after pseudo-element
+
+### issue 4 fixed
+- open / close modal by js toggle in script/modal.js file
+
+### issue 5 fixed
+- UI tested
+
 
 ## project files organization
 - css files in css folder

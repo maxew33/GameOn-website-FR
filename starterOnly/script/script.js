@@ -18,7 +18,7 @@ const
         text: /.{2,}/,
         email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.][a-z]{2,5}$/,
         date: /./,
-        number: /[0-9]+/
+        number: /^\d{1,2}$/
     },    
     finalValidation = []
 
