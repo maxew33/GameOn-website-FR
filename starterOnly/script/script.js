@@ -42,21 +42,18 @@ function displayModal() {
 inscriptionForm.addEventListener('submit', e => {
     e.preventDefault()
 
-    //reset the arrays
+    //reset the array
     finalValidation.length = 0
-    let locationChecked = false
-    // locationChecked.length = 0
 
     //check the "text-control" inputs => formData 0 to 4
     textControls.forEach((controller, idx) => {        
         formValidation(controller.value.match(formConditions[controller.type]) ? true : false, idx)
     })
 
-    //check the place => formData 5
-    console.log(locationsInput)
+    //check the place => formData 5    
+    let locationChecked = false
     locationsInput.forEach((location, idx) => {
         location.checked && (locationChecked = true)
-        console.log(locationChecked)
         idx === (locationsInput.length - 1) && formValidation(locationChecked, 5)
         
     })

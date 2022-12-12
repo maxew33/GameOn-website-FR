@@ -13,7 +13,6 @@
 
 
 ## project files organization
-- scss files in scss folder
 - css files in css folder
 - js files in script folder
 - images in img folder
@@ -36,16 +35,12 @@
 
 
 ## css modifications
-- css => scss
-
 - header
     - main-navbar : hover transition added
     - icon button position improved (absolute on the right of the nav)
 
 - btn-signup : `text-transform : capitalize` => removed
 - hero-img img : `object-fit: cover` => added
-- hero-content removed, replaced by increasing hero content width and right padding
-- hero-headline : 
 
 ## js modifications
 - burger toggle function improved with classlist toggle
