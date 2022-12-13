@@ -38,11 +38,9 @@
 
 - header
     - top nav : div replaced by header, useless id and class removed
-    - float property removed replace by flex.
-    - hero-headline : br tag removed
     - main-navbar : div replaced by nav
     - inline JS removed
-    - span tags in nav container removed
+    - icon class replaced by toggle-btn
 
 - main
     - class name "bground" replace by "modal-container"

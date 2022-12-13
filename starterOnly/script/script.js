@@ -19,7 +19,7 @@ const
         email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.][a-z]{2,5}$/,
         date: /./,
         number: /^\d{1,2}$/
-    },    
+    },
     finalValidation = []
 
 let modalOpened = false
@@ -46,8 +46,9 @@ inscriptionForm.addEventListener('submit', e => {
     finalValidation.length = 0
 
     //check the "text-control" inputs => formData 0 to 4
-    textControls.forEach((controller, idx) => {        
+    textControls.forEach((controller, idx) => {
         formValidation(controller.value.match(formConditions[controller.type]) ? true : false, idx)
+        controller.type === 'date' && dateValidation(controller.valueAsNumber, idx)
     })
 
     //check the place => formData 5    
@@ -55,7 +56,6 @@ inscriptionForm.addEventListener('submit', e => {
     locationsInput.forEach((location, idx) => {
         location.checked && (locationChecked = true)
         idx === (locationsInput.length - 1) && formValidation(locationChecked, 5)
-        
     })
 
     //check the terms of use => formData 6
@@ -65,6 +65,32 @@ inscriptionForm.addEventListener('submit', e => {
     finalValidation.every(value => value === true) && formValidate()
 }
 )
+
+// check if the date is before now and the age > 16
+function dateValidation(myDate, idx) {
+    let dateValid = false
+    let errorMessage = "Veuillez entrer une date de naissance"
+
+    if (myDate > Date.now()) {
+        console.log('popossib')
+        errorMessage = "Vous devez être né.e avant aujourd'hui."
+    }
+    else if (myDate) {
+        console.log('ici')
+        // get the difference between birthday and now
+        const DateDifference = Date.now() - myDate
+        // convert this difference in year from 1970
+        const year = new Date(DateDifference).getUTCFullYear()
+        // get the age
+        const age = Math.abs(year - 1970)
+        age > 16 ? dateValid = true : 
+        errorMessage = "Vous devez avoir plus de 16 ans."
+    }
+
+    textControls[idx].parentNode.dataset.error = errorMessage
+
+    formValidation(dateValid ? true : false, idx)
+}
 
 function formValidation(isCorrect, idx) {
     // if the field is correctly filled => isCorrect === true
