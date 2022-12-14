@@ -487,7 +487,7 @@ input {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%; 
+  height: 100%;
   width: 100%;
   background: #232323;
   display: none;
@@ -505,7 +505,7 @@ input {
   justify-content: center;
 }
 
-.submission-message .modal-btn{
+.submission-message .modal-btn {
   border: none;
   position: absolute;
   bottom: 10vh;
@@ -669,6 +669,10 @@ footer {
   label {
     margin: unset;
     font-size: 15px;
+  }
+
+  .form-data:nth-child(8) label {
+    margin-bottom: 11px;
   }
 
   .form-data[data-error]::after {
