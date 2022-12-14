@@ -50,11 +50,14 @@ inscriptionForm.addEventListener('submit', e => {
     })
 
     //check the place => formData 5    
-    let locationChecked = false
-    locationsInput.forEach((location, idx) => {
-        location.checked && (locationChecked = true)
-        idx === (locationsInput.length - 1) && formValidation(locationChecked, 5)
-    })
+    let locationChecked = false, locationIdx = 0
+
+    while(locationChecked === false && locationIdx < locationsInput.length - 1 ){
+        locationsInput[locationIdx].checked && (locationChecked = true)
+        locationIdx++
+    }
+    
+    formValidation(locationChecked, 5)
 
     //check the terms of use => formData 6
     formValidation(termsOfUse.checked, 6)
