@@ -3,9 +3,8 @@ const
     navigationContainer = document.querySelector('.main-navbar'),
     navigationToggleBtn = document.querySelector('.toggle-btn'),
     //modal elt
-    modalbg = document.querySelector('.modal-container'),
-    closeModal = document.querySelector('.modal-close'),
-    modalBtn = [...document.querySelectorAll('.modal-btn')],
+    modalContainer = document.querySelector('.modal-container'),
+    modalBtn = [...document.querySelectorAll('.modal-btn'), document.querySelector('.modal-close')],
     //form elt
     inscriptionForm = document.querySelector('.inscription-form'),
     formData = [...document.querySelectorAll('.form-data')],
@@ -28,12 +27,11 @@ let modalOpened = false
 navigationToggleBtn.addEventListener('click', () => navigationContainer.classList.toggle('responsive'))
 
 // displaying modal event
-modalBtn.forEach(btn => btn.addEventListener('click', displayModal));
-closeModal.addEventListener('click', displayModal)
+modalBtn.forEach(btn => btn.addEventListener('click', displayModal))
 
 // launch modal form
 function displayModal() {
-    modalbg.style.display = modalOpened ? "none" : "block"
+    modalContainer.style.display = modalOpened ? "none" : "block"
     confirmationModal.style.display = 'none'
     modalOpened = !modalOpened
 }
@@ -72,11 +70,9 @@ function dateValidation(myDate, idx) {
     let errorMessage = "Veuillez entrer une date de naissance"
 
     if (myDate > Date.now()) {
-        console.log('popossib')
         errorMessage = "Vous devez être né.e avant aujourd'hui."
     }
     else if (myDate) {
-        console.log('ici')
         // get the difference between birthday and now
         const DateDifference = Date.now() - myDate
         // convert this difference in year from 1970
@@ -104,5 +100,3 @@ function formValidate() {
 
     confirmationModal.style.display = 'block'
 }
-
-
