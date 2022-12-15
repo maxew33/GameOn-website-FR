@@ -15,7 +15,7 @@ const
     //form validation
     formConditions = {
         text: /.{2,}/,
-        email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.][a-z]{2,5}$/,
+        email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9-_]+[.][a-z]{2,5}$/,
         date: /./,
         number: /^\d{1,2}$/
     },
@@ -82,8 +82,7 @@ function dateValidation(myDate, idx) {
         const year = new Date(DateDifference).getUTCFullYear()
         // get the age
         const age = Math.abs(year - 1970)
-        age > 16 ? dateValid = true : 
-        errorMessage = "Vous devez avoir plus de 16 ans."
+        age > 16 ? dateValid = true : errorMessage = "Vous devez avoir plus de 16 ans."
     }
 
     textControls[idx].parentNode.dataset.error = errorMessage
