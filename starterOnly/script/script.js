@@ -23,8 +23,6 @@ const
 
 let modalOpened = false
 
-console.log(modalBtn)
-
 // toggle menu
 navigationToggleBtn.addEventListener('click', () => navigationContainer.classList.toggle('responsive'))
 
@@ -33,7 +31,6 @@ modalBtn.forEach(btn => btn.addEventListener('click', displayModal))
 
 // launch modal form
 function displayModal() {
-    console.log('pipi caca')
     modalContainer.style.display = modalOpened ? "none" : "block"
     confirmationModal.style.display = 'none'
     modalOpened = !modalOpened
