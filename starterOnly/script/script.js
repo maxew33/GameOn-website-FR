@@ -4,7 +4,7 @@ const
     navigationToggleBtn = document.querySelector('.toggle-btn'),
     //modal elt
     modalContainer = document.querySelector('.modal-container'),
-    modalBtn = [...document.querySelectorAll('.modal-btn'), document.querySelector('.modal-close')],
+    modalBtn = [...document.querySelectorAll('.modal-btn'), ...document.querySelectorAll('.modal-close')],
     //form elt
     inscriptionForm = document.querySelector('.inscription-form'),
     formData = [...document.querySelectorAll('.form-data')],
@@ -15,13 +15,15 @@ const
     //form validation
     formConditions = {
         text: /.{2,}/,
-        email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9-_]+[.][a-z]{2,5}$/,
+        email: /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9-_]+[.]{1}[a-z]{2,5}$/,
         date: /./,
         number: /^\d{1,2}$/
     },
     finalValidation = []
 
 let modalOpened = false
+
+console.log(modalBtn)
 
 // toggle menu
 navigationToggleBtn.addEventListener('click', () => navigationContainer.classList.toggle('responsive'))
@@ -31,6 +33,7 @@ modalBtn.forEach(btn => btn.addEventListener('click', displayModal))
 
 // launch modal form
 function displayModal() {
+    console.log('pipi caca')
     modalContainer.style.display = modalOpened ? "none" : "block"
     confirmationModal.style.display = 'none'
     modalOpened = !modalOpened
