@@ -491,12 +491,14 @@ input {
   position: absolute;
   height: 100%;
   width: 100%;
+  padding: 0 1.5rem;
   color: white;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: left;
 }
 
 .submission-message .modal-btn {

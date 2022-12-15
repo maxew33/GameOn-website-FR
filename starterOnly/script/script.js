@@ -44,15 +44,15 @@ inscriptionForm.addEventListener('submit', e => {
     finalValidation.length = 0
 
     //check the "text-control" inputs => formData 0 to 4
-    textControls.forEach((controller, idx) => {
-        formValidation(controller.value.match(formConditions[controller.type]) ? true : false, idx)
-        controller.type === 'date' && dateValidation(controller.valueAsNumber, idx)
+    textControls.forEach((data, idx) => {
+        formValidation(data.value.match(formConditions[data.type]) ? true : false, idx)
+        data.type === 'date' && dateValidation(data.valueAsNumber, idx)
     })
 
     //check the place => formData 5    
     let locationChecked = false, locationIdx = 0
 
-    while(locationChecked === false && locationIdx < locationsInput.length - 1 ){
+    while(locationChecked === false && locationIdx < locationsInput.length){
         locationsInput[locationIdx].checked && (locationChecked = true)
         locationIdx++
     }
@@ -70,7 +70,7 @@ inscriptionForm.addEventListener('submit', e => {
 // check if the date is before now and the age > 16
 function dateValidation(myDate, idx) {
     let dateValid = false
-    let errorMessage = "Veuillez entrer une date de naissance"
+    let errorMessage = "Veuillez entrer une date de naissance."
 
     if (myDate > Date.now()) {
         errorMessage = "Vous devez être né.e avant aujourd'hui."
