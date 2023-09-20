@@ -1,59 +1,26 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+# GameOn (OC - P4)
 
-# patch note 
+![GameOn banner](https://user.oc-static.com/upload/2020/08/14/15974189526297_image1.png)
 
-## Issues
+Ce repository contient le code du projet 4 de la formation développeur d'application javascript React d'OpenClassrooms : GameOn
 
-### issue 1 fixed
-- open / close modal by js toggle in script/modal.js file
+## Compétences cibles
 
-### issue 2 fixed
-- labels linked
-- form submitted when valid
-- data keeped whan not valid / reset when valid
+- Programmer en javascript
 
-### issue 3 fixed
-- error messages displayed using form-data::after pseudo-element
+## Objectif
 
-### issue 4 fixed
-- open / close modal by js toggle in script/modal.js file
+- vérifier les entrées d'un formulaire
+- interagir avec le DOM
 
-### issue 5 fixed
-- UI tested
+## Aperçu
 
+![snapshot](https://user.oc-static.com/upload/2021/12/15/16395717662959_HomePage.png)
 
-## project files organization
-- css files in css folder
-- js files in script folder
-- images in img folder
+## Ressources
 
+-   [Maquette](https://www.figma.com/file/jHRyg3l2KP6PWHCHdXStzz/UI-Design-GameOn-FR-(Copy)?type=design&node-id=0-1&mode=design&t=o5VcPBmHMK2MvyUR-0)
 
-## html modifications
-- head
-    - updating fontawesome kit
+## Author
 
-- header
-    - top nav : div replaced by header, useless id and class removed
-    - main-navbar : div replaced by nav
-    - inline JS removed
-    - icon class replaced by toggle-btn
-
-- main
-    - class name "bground" replace by "modal-container"
-
-
-## css modifications
-- header
-    - main-navbar : hover transition added
-    - icon button position improved (absolute on the right of the nav)
-
-- btn-signup : `text-transform : capitalize` => removed
-- hero-img img : `object-fit: cover` => added
-
-## js modifications
-- burger toggle function improved with classlist toggle
-- all js in a single file called script.js
+-   [Maxime Malfilâtre](https://www.github.com/maxew33)
